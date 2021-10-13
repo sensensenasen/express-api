@@ -38,20 +38,20 @@ router.post("/", async (req, res) => {
   }
 });
 
-//DELETE POST
+//DELETE User
 router.delete("/:userId", async (req, res) => {
   try {
-    const removedUser = await Post.remove({ _id: req.params.userId });
+    const removedUser = await User.remove({ _id: req.params.userId });
     res.json(removedUser);
   } catch (err) {
     res.json({ message: err });
   }
 });
 
-//UPDATE POST
+//UPDATE User
 router.patch("/:userId", async (req, res) => {
   try {
-    const updatedUser = await Post.updateOne(
+    const updatedUser = await User.updateOne(
       { _id: req.params.userId },
       {
         $set: {
